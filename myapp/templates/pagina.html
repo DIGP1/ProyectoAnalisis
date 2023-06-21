@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if request.session.usuario %}
+        <h1>Bienvenido, {{request.session.usuario}}</h1> &nbsp;&nbsp; <a href="/cerrarSesion">Cerrar Sesion</a>
+    {% else %}
+        <a href="/Registro">Registrarse</a>
+        <a href="/inicioSesion">Login</a>
+    {% endif %}
+</body>
+</html>
