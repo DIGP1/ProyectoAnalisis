@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <title>Document</title>
 </head>
 <body>
@@ -49,6 +50,24 @@
             display: flex;
             justify-content: space-around;
         }
+
+        .menudesplegable {
+        position: relative;
+        display: inline-block;
+        }
+
+      .menudesplegable-contenido {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+      }
+
+      .menu:hover .menudesplegable-contenido {
+        display: block;
+      }
       </style>
     </head>
     <body>
@@ -72,6 +91,25 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Contacto</a>
             </li>
+            
+            {% if request.session.usuario %}
+            <div class="dropdown show nav-item">
+              <a href="#" class="btn dropdown-toggle nav-link" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Bienvenido, {{request.session.usuario}}
+              </a>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a href="#" class="dropdown-item">Mi perfil</a>
+                <a href="/cerrarSesion" class="dropdown-item">Cerrar Sesion</a>
+              </div>
+            </div>
+            {% else %}
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="/Registro">Registrarse</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/inicioSesion">Login</a>
+            </li>
+            {% endif %}
           </ul>
         </div>
       </nav>
@@ -102,12 +140,7 @@
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 <!-- no se donde iria eso -->
-      {% if request.session.usuario %}
-      <h1>Bienvenido, {{request.session.usuario}}</h1> &nbsp;&nbsp; <a href="/cerrarSesion">Cerrar Sesion</a>
-  {% else %}
-      <a href="/Registro">Registrarse</a>
-      <a href="/inicioSesion">Login</a>
-  {% endif %}
+
 
     
 </body>
