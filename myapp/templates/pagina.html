@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,4 +14,152 @@
         <a href="/inicioSesion">Login</a>
     {% endif %}
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <style>
+        body {
+          background-color: #f8f9fa;
+          font-family: Arial, sans-serif;
+        }
+        .navbar {
+          background-color: #343a40;
+        }
+        .navbar-brand, .navbar-nav .nav-link {
+          color: #ffffff;
+        }
+        .jumbotron {
+          background: linear-gradient(90deg, rgba(0,0,0,1) 55%, rgba(33,33,41,1) 100%, rgba(0,0,0,1) 100%);
+          color: #ffffff;
+          padding: 80px;
+          margin-bottom: 0;
+        }
+        .jumbotron h1 {
+          font-size: 48px;
+        }
+        .jumbotron p {
+          font-size: 24px;
+        }
+        .content-section {
+          background-color: #ffffff;
+          padding: 60px 0;
+        }
+        .content-section h2 {
+          color: #007bff;
+        }
+        .content-section p {
+          color: #777777;
+        }
+        .c{
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            ;
+        }
+        .container{
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .menudesplegable {
+        position: relative;
+        display: inline-block;
+        }
+
+      .menudesplegable-contenido {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+      }
+
+      .menu:hover .menudesplegable-contenido {
+        display: block;
+      }
+      </style>
+    </head>
+    <body>
+        {% block content %}
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+        <a class="navbar-brand" href="#">METODO DE MULLER</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Acerca de</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Servicios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contacto</a>
+            </li>
+            
+            {% if request.session.usuario %}
+            <div class="dropdown show nav-item">
+              <a href="#" class="btn dropdown-toggle nav-link" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Bienvenido, {{request.session.usuario}}
+              </a>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a href="#" class="dropdown-item">Mi perfil</a>
+                <a href="/cerrarSesion" class="dropdown-item">Cerrar Sesion</a>
+              </div>
+            </div>
+            {% else %}
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="/Registro">Registrarse</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/inicioSesion">Login</a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </nav>
+    
+      
+      <div class="jumbotron text-center">
+        <h1 class="display-4">¡Bienvenido!</h1>
+        <p class="lead">METODO DE MULLER</p>
+      </div>
+    
+      <div class="container ">
+        <div class="row">
+          <div class="col-md-6 c p-2" >
+            <h2>Ingresa la funcion a evaluar</h2>
+            <input type="text" name="" id="" placeholder="funcion a evaluar">
+            <h2>Ingresa los puntos a evaluar separados por ,</h2>
+            <input type="text" name="" id="" placeholder="puntos a evaluar">
+            
+          </div>
+          <div class="col-md-6 c" >
+           
+          </div>
+        </div>
+      </div>
+      {% endblock %}
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- no se donde iria eso -->
+
+
+    
+</body>
+>>>>>>> adea497916b6fbb42bf4fdedd9214626e0f16cf5
 </html>
