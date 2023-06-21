@@ -8,6 +8,8 @@ class usuarios(models.Model):
     correo= models.CharField(max_length=15)
     usuario= models.CharField(max_length=10)
     contraseña= models.CharField(max_length=15)
+    def __str__(self) -> str:
+        return self.Nombre
     
 
 class datosEjercicio(models.Model):
@@ -24,6 +26,7 @@ class datosEjercicio(models.Model):
     RaizAnterior= models.DecimalField(max_digits=5, decimal_places=5)
     RaizResultante= models.DecimalField(max_digits=5, decimal_places=5)
     MargenError= models.DecimalField(max_digits=5, decimal_places=5)
-
+    def __str__(self) -> str:
+        return self.h0
 
 

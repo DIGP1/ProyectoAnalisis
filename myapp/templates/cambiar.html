@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <style>
+    body {
+        background: linear-gradient(90deg, rgba(0,0,0,1) 1%, rgba(76,75,91,1) 100%, rgba(0,0,0,1) 100%);
+
+
+
+      
+    }
+
+    .card {
+      background-color: rgba(255, 255, 255, 0.7);
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      width: 800px;
+      height: 400px;
+    }
+
+    .card-title {
+      color: #333;
+    }
+
+    .form-group label {
+      color: #555;
+    }
+
+    .form-control {
+      background-color: rgba(255, 255, 255, 0.8);
+      color: #333;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+      background-color: #0069d9;
+      border-color: #0062cc;
+    }
+  </style>
+</head>
+
+<body>
+    {% block content %}
+  <div class="">
+    <div class="row justify-content-center align-items-center" style="height: 100vh; margin: 0 auto; position: relative;">
+      <div class="col-md-6" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+        <div class="card mx-auto" > 
+          <div class="card-body" >
+            <div class="row">
+              <div class="col-md-6">
+                
+                {% load static %}
+                <img src="{% static 'img/img1.png' %}" alt="Image" style="width: 100%; height: 100%;">
+              </div>
+              <div class="col-md-6">
+                <h3 class="card-title text-center mb-4">Ingrese una nueva contraseña</h3>
+                <form method="POST">
+                    {% csrf_token %} 
+                  <div class="form-group">
+                    <label for="username">Nueva contraseña:</label>
+                    <input type="text" class="form-control" id="newcontraseña" name="newcontraseña" placeholder="Introduce la contraseña">
+                  </div>
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-primary btn-block">Cambiar</button>
+                  </div>
+                  {% if messages %}
+                  {% for msg in messages %}
+                  <b>{{msg}}</b>
+                  {% endfor %}
+                  {% endif %}
+                </form>
+        
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock %}
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
